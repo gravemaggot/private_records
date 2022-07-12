@@ -50,6 +50,33 @@ function fill_residence_adr() {
     return (false) // Стандартная обработка
 }
 
+function get_gender_on_change_name() {
+    var result;
+
+    reqstr = "/microservices/gender/?" +
+        "firstname="  + document.getElementById("candidate_first_name").value+"&"+ 
+        "lastname="   + document.getElementById("candidate_last_name").value+"&"+
+        "middlename=" + document.getElementById("candidate_sur_name").value+"&";
+    
+    xhr = new XMLHttpRequest;
+    xhr.open('GET', reqstr, false);
+    xhr.send();
+    if (xhr.status != 200) {
+        console.log(`Ошибка при получении пола (${xhr.status}): ${xhr.statusText}`);
+    } else {
+        result = xhr.response;
+    }
+
+    el_candidate_gender = document.getElementById("candidate_gender");
+    if (result=="male") {
+        el_candidate_gender.value = "Мужской";
+    }else if (result=="female"){
+        el_candidate_gender.value = "Женский";
+    }else{
+        el_candidate_gender.value = "";
+    }
+}
+
 // Tables
 
 function add_relatives_table_new_row(){

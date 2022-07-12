@@ -11,6 +11,20 @@ class AdRoutes < ApplicationController
     send_file(File.join(File.dirname(__FILE__), "/../#{params[:dirname]}/#{params[:file]}"))
   end
 
+  # API for microservices
+  namespace '/microservices' do
+    get '/gender/?' do
+      # http://10.10.1.120/microservices/gender/?firstname=Владимир&lastname=Рыбальченко&middlename=Андреевич
+      halt 400, '400: Bad Request' unless (params[:firstname] && params[:lastname] && params[:middlename])
+      content_type 'text/plain'
+      Petrovich(
+        firstname: params[:firstname], 
+        lastname: params[:lastname], 
+        middlename: params[:middlename]
+      ).gender.to_s 
+    end
+  end
+
   ####### API v1 #######
   namespace '/api/v1' do
     # before
