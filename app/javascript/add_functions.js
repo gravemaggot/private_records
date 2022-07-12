@@ -610,6 +610,24 @@ function add_validation_tags(validate_fields){
             if (el.className.indexOf("table table-bordered") > -1){
                 el.classList.value = "table table-danger table-responsive"
                 set_required_for_fields(el, ["input", "textarea"])
+                if (el.id == "candidate_relatives") {
+                    if (document.getElementById("candidate_marital_status").value=="Замужем, женат"){
+                        if(document.getElementById("candidate_gender").value=="Мужской"){
+                            alert_template = "Укажите близких родственников: родителей, жену, детей (при наличии). Братьев и сестер."
+                        }else if (document.getElementById("candidate_gender").value=="Женский"){
+                            alert_template = "Укажите близких родственников: родителей, мужа, детей (при наличии). Братьев и сестер."
+                        }else{
+                            alert_template = "Укажите близких родственников: родителей, братьев и сестер."
+                        }
+                    }else{
+                        alert_template = "Укажите близких родственников: родителей, братьев и сестер."
+                    }
+                    
+                    alert_el = document.getElementById("relatives_error")
+                    alert_el.hidden = false
+                    alert_el.innerHTML = alert_template
+
+                }
             }else if (el.className.indexOf("input-group-prepend") > -1){
                 el.parentElement.parentElement.parentElement.querySelectorAll("label")[0].style = "color:#dc3545"
                 el.style = "color:#dc3545"
