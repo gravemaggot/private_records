@@ -611,7 +611,10 @@ function add_validation_tags(validate_fields){
                 el.classList.value = "table table-danger table-responsive"
                 set_required_for_fields(el, ["input", "textarea"])
                 if (el.id == "candidate_relatives") {
-                    if (document.getElementById("candidate_marital_status").value=="Замужем, женат"){
+                    if(document.getElementById("is_worker") != null){
+                        alert_template = "ВАЖНО! Максимально подробно укажите близких родственников: родителей, супруга/супругу, детей (при наличии). Братьев и сестер."    
+                    }
+                    else if (document.getElementById("candidate_marital_status").value=="Замужем, женат"){
                         if(document.getElementById("candidate_gender").value=="Мужской"){
                             alert_template = "ВАЖНО! Максимально подробно укажите близких родственников: родителей, жену, детей (при наличии). Братьев и сестер."
                         }else if (document.getElementById("candidate_gender").value=="Женский"){

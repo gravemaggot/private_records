@@ -14,15 +14,13 @@
         <input class="form-control" type="text" name="candidate[last_name]" id="candidate_last_name" value="<%= @candidate.last_name %>" onblur="get_gender_on_change_name()">
         <label for="inputSurname">Отчество</label>
         <input class="form-control" type="text" name="candidate[sur_name]" id="candidate_sur_name" value="<%= @candidate.sur_name %>" onblur="get_gender_on_change_name()">
-        <div class="form-group col-md-6">
-          <label for="candidateGender">Пол *</label>
-          <select class="form-control" name="candidate[gender]" id="candidate_gender">
-            <option selected></option>
-            <% ['Мужской', 'Женский'].each do |option| %>
-              <option value="<%= option %>" <%= 'selected' if @candidate[:gender] == option %>><%= option %></option>
-            <% end %>
-          </select>
-        </div>  
+        <label for="candidateGender">Пол *</label>
+        <select class="form-control" name="candidate[gender]" id="candidate_gender">
+          <option selected></option>
+          <% ['Мужской', 'Женский'].each do |option| %>
+            <option value="<%= option %>" <%= 'selected' if @candidate[:gender] == option %>><%= option %></option>
+          <% end %>
+        </select>
         <label for="InputPhone">Телефон *</label>
         <input class="form-control" type="text" name="candidate[phone]" id="candidate_phone" value="<%= @candidate.phone %>">
         <label for="InputPhone">E-mail *</label>
