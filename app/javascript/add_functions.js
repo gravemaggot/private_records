@@ -613,14 +613,14 @@ function add_validation_tags(validate_fields){
                 if (el.id == "candidate_relatives") {
                     if (document.getElementById("candidate_marital_status").value=="Замужем, женат"){
                         if(document.getElementById("candidate_gender").value=="Мужской"){
-                            alert_template = "Укажите близких родственников: родителей, жену, детей (при наличии). Братьев и сестер."
+                            alert_template = "ВАЖНО! Максимально подробно укажите близких родственников: родителей, жену, детей (при наличии). Братьев и сестер."
                         }else if (document.getElementById("candidate_gender").value=="Женский"){
-                            alert_template = "Укажите близких родственников: родителей, мужа, детей (при наличии). Братьев и сестер."
+                            alert_template = "ВАЖНО! Максимально подробно укажите близких родственников: родителей, мужа, детей (при наличии). Братьев и сестер."
                         }else{
-                            alert_template = "Укажите близких родственников: родителей, братьев и сестер."
+                            alert_template = "ВАЖНО! Максимально подробно укажите близких родственников: родителей, братьев и сестер."
                         }
                     }else{
-                        alert_template = "Укажите близких родственников: родителей, братьев и сестер."
+                        alert_template = "ВАЖНО! Максимально подробно укажите близких родственников: родителей, братьев и сестер."
                     }
                     
                     alert_el = document.getElementById("relatives_error")
