@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id.to_s
       redirect '/'
     else
-      @error = erb_error(@user)
+      @error = erb_error(@user, [])
       erb :login
     end
 
