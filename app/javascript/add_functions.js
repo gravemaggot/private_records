@@ -381,7 +381,7 @@ function fill_relatives_content(contentElement){
         rowElement = rowsElement.childNodes[rowsElement.childNodes.length-1]
         typeOptions = rowElement.childNodes[0].childNodes[0]
 
-        for (n=0;n<typeOptions.childNodes.length-1;n++){
+        for (n=0;n<typeOptions.childNodes.length;n++){
             option = typeOptions.childNodes[n]
             option.selected = (option.value == rowData["type"])
         }
