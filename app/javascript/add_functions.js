@@ -411,7 +411,7 @@ function fill_education_content(contentElement, position_type){
         typeOptions = rowElement.childNodes[4].childNodes[0]
 
         if (position_type != "worker") {
-            for (n=0;n<typeOptions.childNodes.length-1;n++){
+            for (n=0;n<typeOptions.childNodes.length;n++){
                 option = typeOptions.childNodes[n]
                 option.selected = (option.value == rowData["form"])
             }
