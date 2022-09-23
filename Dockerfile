@@ -22,6 +22,9 @@ COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 RUN bundle config set without 'development test' && bundle install
 COPY . .
+COPY ./app/javascript/* ./public/js/
+COPY ./app/images/* ./public/img/
+COPY ./app/styles/* ./public/css/
 
 EXPOSE 4567
 
