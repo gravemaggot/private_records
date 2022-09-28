@@ -106,6 +106,8 @@ class Candidate
 
   mount_uploader :image, ImageUploader, type: String
 
+  ignored_states = %w[000000005 000000009 000000010 000000011]
+
   validates :guid,
             :position,
             :first_name,
@@ -133,7 +135,7 @@ class Candidate
             :ready_to_start_work,
             :data_verification,
             :data_verification_date,
-            presence: true, unless: proc { |a| a.active || a.state_code == '000000005'}
+            presence: true, unless: proc { |a| a.active || ignored_states.include?(a.state_code)}
 
   validates :bad_habits,
             :health_status,
@@ -143,7 +145,7 @@ class Candidate
             :previous_job_disciplinary_penalties,
             :job_data_source,
             :last_average_monthly_income,
-            presence: true, if: proc { |a| !a.active && a.position_type == 'worker' && a.state_code != '000000005' }
+            presence: true, if: proc { |a| !a.active && a.position_type == 'worker' && !ignored_states.include?(a.state_code)}
 
   validates :marital_status,
             :citizenship,

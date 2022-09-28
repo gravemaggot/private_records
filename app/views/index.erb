@@ -24,6 +24,12 @@
             <td>
               <% if candidate.state_code == '000000005' %>
                 Таймаут
+              <% elsif candidate.state_code == '000000009' %>
+                Отказ компании
+              <% elsif candidate.state_code == '000000010' %>
+                Отказ кандидата
+              <% elsif candidate.state_code == '000000011' %>
+                Принят
               <% elsif candidate.active %>
                 Анкетирование
               <% else %>
