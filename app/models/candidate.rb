@@ -106,7 +106,7 @@ class Candidate
 
   mount_uploader :image, ImageUploader, type: String
 
-  ign_sts = %w[000000002 000000005 000000009 000000010 000000011] # ignored for validation states
+  ign_sts = %w[000000005 000000009 000000010 000000011] # ignored for validation states
 
   validates :guid,
             :position,
@@ -135,7 +135,7 @@ class Candidate
             :ready_to_start_work,
             :data_verification,
             :data_verification_date,
-            presence: true, unless: proc { |a| ign_sts.include?(a.state_code) } # a.active || 
+            presence: true, unless: proc { |a| a.active || ign_sts.include?(a.state_code) }
 
   validates :bad_habits,
             :health_status,
@@ -145,7 +145,7 @@ class Candidate
             :previous_job_disciplinary_penalties,
             :job_data_source,
             :last_average_monthly_income,
-            presence: true, if: proc { |a| a.position_type == 'worker' && !ign_sts.include?(a.state_code) } # !a.active && 
+            presence: true, if: proc { |a| !a.active && a.position_type == 'worker' && !ign_sts.include?(a.state_code) }
 
   validates :marital_status,
             :citizenship,
@@ -162,7 +162,7 @@ class Candidate
             :overtime_work,
             :business_trips,
             :training,
-            presence: true, if: proc { |a| a.position_type != 'worker' && !ign_sts.include?(a.state_code) } #  !a.active &&
+            presence: true, if: proc { |a| !a.active && a.position_type != 'worker' && !ign_sts.include?(a.state_code) }
 
   index({ guid: 1 }, { unique: true, name: 'guid_index' })
 
