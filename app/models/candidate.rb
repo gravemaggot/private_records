@@ -135,7 +135,7 @@ class Candidate
             :ready_to_start_work,
             :data_verification,
             :data_verification_date,
-            presence: true, unless: proc { |a| a.active || ign_sts.include?(a.state_code) }
+            presence: true, unless: proc { |a| a.active || !ign_sts.include?(a.state_code) }
 
   validates :bad_habits,
             :health_status,
