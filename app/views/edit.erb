@@ -21,7 +21,7 @@
 
     <input hidden class="form-control" type="text" name="candidate[state_code]" id="candidate_state_code" value="<%= @candidate.state_code %>">
     <input hidden class="form-control" type="text" name="candidate[active]" id="candidate_active" value="<%= @candidate.active %>">
-    <input hidden class="form-control" type="text" name="candidate[data_verification]" id="candidate_data_verification" value="<%= @candidate.data_verification %>">
+    <input hidden class="form-control" type="text" name="candidate[data_verification]" id="candidate_data_verification" value="<%= @candidate.data_verification || user_signed_in?%>">
     <input hidden class="form-control" type="text" name="candidate[data_verification_date]" id="candidate_data_verification_date" value="<%= @candidate.data_verification_date %>">
     
 	<input hidden class="form-control" type="text" name="validate_fields" id="validate_fields" value="<%= @validate_fields if @validate_fields %>">
