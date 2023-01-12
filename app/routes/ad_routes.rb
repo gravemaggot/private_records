@@ -16,6 +16,56 @@ class AdRoutes < ApplicationController
         middlename: params[:middlename]
       ).gender.to_s 
     end
+
+    get '/genitive/?' do
+      halt 400, '400: Bad Request' unless (params[:firstname] && params[:lastname] && params[:middlename])
+      content_type 'text/plain'
+      Petrovich(
+        firstname: params[:firstname], 
+        lastname: params[:lastname], 
+        middlename: params[:middlename]
+      ).genitive.to_s 
+    end
+    
+    get '/dative/?' do
+      halt 400, '400: Bad Request' unless (params[:firstname] && params[:lastname] && params[:middlename])
+      content_type 'text/plain'
+      Petrovich(
+        firstname: params[:firstname], 
+        lastname: params[:lastname], 
+        middlename: params[:middlename]
+      ).genitive.to_s 
+    end
+
+    get '/accusative/?' do
+      halt 400, '400: Bad Request' unless (params[:firstname] && params[:lastname] && params[:middlename])
+      content_type 'text/plain'
+      Petrovich(
+        firstname: params[:firstname], 
+        lastname: params[:lastname], 
+        middlename: params[:middlename]
+      ).genitive.to_s 
+    end
+
+    get '/instrumental/?' do
+      halt 400, '400: Bad Request' unless (params[:firstname] && params[:lastname] && params[:middlename])
+      content_type 'text/plain'
+      Petrovich(
+        firstname: params[:firstname], 
+        lastname: params[:lastname], 
+        middlename: params[:middlename]
+      ).genitive.to_s 
+    end
+
+    get '/prepositional/?' do
+      halt 400, '400: Bad Request' unless (params[:firstname] && params[:lastname] && params[:middlename])
+      content_type 'text/plain'
+      Petrovich(
+        firstname: params[:firstname], 
+        lastname: params[:lastname], 
+        middlename: params[:middlename]
+      ).genitive.to_s 
+    end
   end
 
   ####### API v1 #######
