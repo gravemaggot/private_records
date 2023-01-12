@@ -34,7 +34,7 @@ class AdRoutes < ApplicationController
         firstname: params[:firstname], 
         lastname: params[:lastname], 
         middlename: params[:middlename]
-      ).genitive.to_s 
+      ).dative.to_s 
     end
 
     get '/accusative/?' do
@@ -44,7 +44,7 @@ class AdRoutes < ApplicationController
         firstname: params[:firstname], 
         lastname: params[:lastname], 
         middlename: params[:middlename]
-      ).genitive.to_s 
+      ).accusative.to_s 
     end
 
     get '/instrumental/?' do
@@ -54,7 +54,7 @@ class AdRoutes < ApplicationController
         firstname: params[:firstname], 
         lastname: params[:lastname], 
         middlename: params[:middlename]
-      ).genitive.to_s 
+      ).instrumental.to_s 
     end
 
     get '/prepositional/?' do
@@ -64,7 +64,7 @@ class AdRoutes < ApplicationController
         firstname: params[:firstname], 
         lastname: params[:lastname], 
         middlename: params[:middlename]
-      ).genitive.to_s 
+      ).prepositional.to_s 
     end
   end
 
