@@ -64,7 +64,7 @@ class AdRoutes < ApplicationController
         firstname: params[:firstname], 
         lastname: params[:lastname], 
         middlename: params[:middlename]
-      ).prepositional.to_s 
+      ).prepositional.to_s
     end
   end
 
